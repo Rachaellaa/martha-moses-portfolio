@@ -3,8 +3,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.database import Base, engine
-from app.models import ContactMessage
-
+from app.models import (
+    ContactMessage,
+    Profile,
+    Experience,
+    Project,
+    Skill,
+)
 from app.routers.profile import router as profile_router
 from app.routers.experience import router as experience_router
 from app.routers.skills import router as skills_router

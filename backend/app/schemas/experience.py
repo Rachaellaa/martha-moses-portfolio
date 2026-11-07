@@ -1,9 +1,10 @@
 from typing import List, Optional
-
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class ExperienceResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     job_title: str
     company: str
     employment_type: Optional[str] = None
