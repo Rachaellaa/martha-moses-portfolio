@@ -1,5 +1,8 @@
 
-const API_BASE_URL = 'https://martha-portfolio-api.onrender.com';
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ||
+  'https://martha-moses-portfolio-api-three.vercel.app'
+).replace(/\/$/, '');
 
 export interface Profile {
   full_name: string;
@@ -39,7 +42,6 @@ export interface Experience {
   technologies: string[];
 }
 
-
 export interface Skill {
   category: string;
   skills: string[];
@@ -68,6 +70,7 @@ export const getExperience = () =>
 
 export const getSkills = () =>
   fetchAPI<Skill[]>('/api/skills/');
+
 export interface ContactRequest {
   name: string;
   email: string;
