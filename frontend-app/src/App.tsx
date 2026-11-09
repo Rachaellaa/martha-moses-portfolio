@@ -12,6 +12,15 @@ import {
   type Experience,
   type Skill,
 } from './api'
+declare global {
+  interface Window {
+    gtag?: (
+      command: 'event',
+      eventName: string,
+      eventParams?: Record<string, string>
+    ) => void
+  }
+}
 
 function App() {
   const [profile, setProfile] = useState<Profile | null>(null)
@@ -119,7 +128,15 @@ const handleContactSubmit = async (
   setContactError('')
 
   try {
-    const response = await sendContactMessage(contactForm)
+        const response = await sendContactMessage(contactForm)
+
+    // Track successful contact form submissions in Google Analytics
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'contact_form_submit', {
+        event_category: 'engagement',
+        event_label: 'Portfolio Contact Form',
+      })
+    }
 
     setContactStatus(
       response.message || 'Your message has been sent successfully!'
