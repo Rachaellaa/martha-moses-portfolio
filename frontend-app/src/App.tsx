@@ -682,14 +682,38 @@ const filters = [
         <p>© 2026 {name}. All rights reserved.</p>
 
         <div className="footer-links">
-          <a href={github} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
+  <a
+    href={github}
+    target="_blank"
+    rel="noreferrer"
+    onClick={() => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'github_click', {
+          event_category: 'engagement',
+          event_label: 'GitHub Profile',
+        })
+      }
+    }}
+  >
+    GitHub
+  </a>
 
-          <a href={linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-        </div>
+  <a
+    href={linkedin}
+    target="_blank"
+    rel="noreferrer"
+    onClick={() => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'linkedin_click', {
+          event_category: 'engagement',
+          event_label: 'LinkedIn Profile',
+        })
+      }
+    }}
+  >
+    LinkedIn
+  </a>
+</div>
       </footer>
     </main>
   )
