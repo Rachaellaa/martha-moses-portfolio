@@ -46,6 +46,45 @@
     <meta name="theme-color" content="#0b1120" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Person and Professional Portfolio Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://martha-rachael-moses-portfolio.vercel.app/#person",
+          "name": "Martha Rachael Moses",
+          "url": "https://martha-rachael-moses-portfolio.vercel.app/",
+          "jobTitle": [
+            "Data Engineer",
+            "Analytics Engineer",
+            "Data Analyst"
+          ],
+          "email": "martharachaelmoses@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lagos",
+            "addressCountry": "NG"
+          },
+          "sameAs": [
+            "https://github.com/Rachaellaa",
+            "https://www.linkedin.com/in/martha-rachael-moses-7106253a4/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://martha-rachael-moses-portfolio.vercel.app/#website",
+          "url": "https://martha-rachael-moses-portfolio.vercel.app/",
+          "name": "Martha Rachael Moses | Data Engineer Portfolio",
+          "author": {
+            "@id": "https://martha-rachael-moses-portfolio.vercel.app/#person"
+          },
+          "description": "Professional portfolio showcasing Martha Rachael Moses' data engineering, analytics engineering and data analytics projects."
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
